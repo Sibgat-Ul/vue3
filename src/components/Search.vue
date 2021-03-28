@@ -13,7 +13,7 @@
                 type="text" v-model="search"
                 :style="
                     {
-                        color: color
+                        color: `#${color}`,
                     }
                 " 
                 >
@@ -36,7 +36,8 @@ export default {
 
         color: {
             default: "#e84118"
-        } 
+        },
+
     },
     setup (props) {
         const search = ref(' ');
@@ -61,6 +62,7 @@ export default {
         border-radius: 30px;
         text-align: center;
         transition: .4s;
+        background: #2f3640;
     }
 
     input {
@@ -73,6 +75,7 @@ export default {
         font-size: 16px;
         transition: .3s;
         padding: 0px;
+        background: #2f3640;
     }
 
     span {

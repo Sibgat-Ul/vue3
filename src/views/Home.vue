@@ -1,18 +1,23 @@
 <template>
     <div class="home">
+
+        <Navbar id="nav" :bg = "style.bg" :wrapper = "style.sic" :color = "style.color"/>
+
         <div class="hero">
-            <h1 class="ho txt">
-              Welcome to my demo (library) project
-            </h1>
-            <span class="sm txt">
-              This project was made for fun ;) .
-            </span>
-            <h2 class="ht txt">
-              Why this website? (I dont know)
-            </h2>
-            <p class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi saepe harum est minus fugit voluptatibus obcaecati distinctio molestiae officia suscipit cum porro, neque quidem nostrum eveniet non magnam dolor fugiat?
-            </p>
+            <div class="texts">
+                <h1 class="ho txt">
+                Welcome to my demo (library) project
+                </h1>
+                <span class="sm txt">
+                This project was made for fun ;) .
+                </span>
+                <h2 class="ht txt">
+                Why this website? (I dont know)
+                </h2>
+                <p class="txt">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi saepe harum est minus fugit voluptatibus obcaecati distinctio molestiae officia suscipit cum porro, neque quidem nostrum eveniet non magnam dolor fugiat?
+                </p>
+            </div>
 
             <div class="btncon">
                 <button>
@@ -38,24 +43,19 @@
             </button>
            <Login v-if="login"/>
 
+          <div class="lib">
+              <button class="libtn" >
+
+                <router-link to="/lib">
+                    Start reading! 
+                </router-link>
+
+                <span>
+                  <i class="fas fa-book"></i>
+                </span>
+          </button>
         </div>
 
-        <div class="txtBox">
-            <div class="sec1">
-                <h1>
-                    Section One
-                </h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis in, velit ratione magni sunt placeat officia quasi culpa minus consequatur ea fugiat esse quibusdam? Nobis odio voluptatum consectetur dolores quas.
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel illum aperiam illo quos rem eaque ducimus, ad doloremque id quam sequi facilis repellat inventore. Explicabo eaque aspernatur animi aliquam eveniet!
-            </div>
-
-            <div class="sec2">
-                <h1>
-                    Section Two
-                </h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi est quibusdam aperiam eos reiciendis vitae sequi quis eveniet sed voluptates sit a expedita eum iure eligendi, hic excepturi ex.
-                Lorem ipsum dolor, sit amet consechgfhjgtetur adipisicing elit. Vel illum aperiam illo quos rem eaque ducimus, ad doloremque id quam sequi facilis repellat inventore. Explicabo eaque aspernatur animi aliquam eveniet!
-            </div>
         </div>
 
     </div>
@@ -64,17 +64,25 @@
 <script>
 // @ is an alias to /src
 import Login from '@/components/Login.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'Home',
   components: {
-    Login
+    Login,
+    Navbar
   },
   setup () {
-    const login = false
+    const login = false;
+
+    const style = {
+        bg : "ffffff",
+        color : "42b9ac",
+    }
 
     return {
-      login
+      login,
+      style
     }
   }
 }
@@ -82,7 +90,14 @@ export default {
 
 <style scoped>
   * {
-    color: #111
+    color: #fff;
+  }
+
+  #nav {
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 9998;
   }
 
   .txtBox {
@@ -91,7 +106,6 @@ export default {
 
   .sec1, .sec2 {
       color: #111;
-      height: 100%;
       text-align: center;
       margin-bottom: 20px;
       background: #fff;
@@ -99,18 +113,37 @@ export default {
 
   .hero {
       color: #fff;
-      padding: 250px 100px 250px;
+      padding: 180px;
+      margin: auto;
+      text-decoration: center;
   }
 
+  .lib, .libtn {
+    width: 300px;
+    margin: auto;
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    color: brown;
+  }
+
+  .libtn, .libtn > a, .libtn > span > i {
+    color: brown;
+    text-decoration: none;
+  }
+
+
   .hero > .txt {
-      color: #fff;
+    color: #fff;
+    margin: auto;
   }
 
   .home {
-    position: relative;
     background: url("./../assets/hero-bg.jpg");
-    top: 0;
-    height: 100%;
+    text-align: center;
+    min-height: 100vh;
+    height: auto;
     background-repeat: no-repeat;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -167,5 +200,15 @@ export default {
 
   .hero > p {
     font-size: 18px;
+  }
+
+  @media screen and (max-width: 640px) {
+    #nav {
+        padding: 0px 8px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
   }
 </style>
