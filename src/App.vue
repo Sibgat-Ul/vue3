@@ -28,10 +28,26 @@ html, body {
   margin: 0px;
   padding: 0px;
   scroll-behavior: smooth;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+html::-webkit-scrollbar-track {
+  width: 5px;
+}
+ 
+html::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #6e00e4;
+  outline: none;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

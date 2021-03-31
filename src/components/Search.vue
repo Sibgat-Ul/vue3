@@ -14,13 +14,21 @@
                 :style="
                     {
                         color: `#${color}`,
+                        background: `#${bg}`
                     }
                 " 
                 >
 
-            <span>
+            <button
+                :style="
+                    {
+                        color: `#${color}`,
+                        background: `#${bg}`
+                    }
+                " 
+            >
                 <i class="fas fa-search"></i>
-            </span>
+            </button>
         </div>
     </div>
 </template>
@@ -78,7 +86,7 @@ export default {
         background: #2f3640;
     }
 
-    span {
+    button {
         float: right;
         width: 30px;
         height: 30px;
@@ -87,14 +95,17 @@ export default {
         align-items: center;
         cursor: pointer;
         border-radius: 50%;
+        border: none;
+        outline: none;
+        font-size: 16px;
     }
        
-    .wrapper:hover {
+    .wrapper:hover, .wrapper:active {
         width: 200px;
         transition: .3s;
     }
 
-    .wrapper:hover input {
+    .wrapper:hover input, .wrapper:active input {
         width: 160px;
         transition: .4s;
     }

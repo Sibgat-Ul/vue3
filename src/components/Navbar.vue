@@ -1,5 +1,11 @@
 <template>
-    <div id="nav">
+    <div id="nav"
+        :style ="
+        {
+            background: `#${bg}`
+        }
+        "
+    >
 
         <div class="logo">
             <img alt="Vue logo" src="@/assets/logo.png">
@@ -7,18 +13,21 @@
 
         <div class="navs">
             <router-link to="/">Home</router-link> 
-            <router-link to="/about">
-                Blogs
-            </router-link>
             <router-link to="/lib">Library</router-link>
             <router-link to="/cont">Contact</router-link>
 
-           <Search :bg = "bg"  :color = "color" />
+           <!--<Search :bg = "bg"  :color = "color" />-->
 
         </div>
     </div>
 
-    <div id="nav2">
+    <div id="nav2"
+        :style ="
+        {
+            background: `#${bg}`
+        }
+        "
+    >
         <div class="logo">
             <img alt="Vue logo" src="@/assets/logo.png">
         </div>
@@ -28,11 +37,11 @@
 </template>
 
 <script>
-import Search from './Search'
+//import Search from './Search'
 
 export default {
     components: {
-        Search
+        //Search
     },
     props: {
         bg: {
@@ -65,10 +74,9 @@ export default {
         height: 60px;
         padding: 10px 0px 5px 80px;
         font-size: 18px;
-        background: transparent;
         text-decoration: none;
-        border-bottom: 1px solid #efefef;
-        display: none;
+        border-bottom: 1px ;
+        max-width: 100%;
     }
 
     #nav2 > .logo > img, #nav > .logo > img {
@@ -78,7 +86,7 @@ export default {
     #nav a {
         margin: 10px;
         font-weight: bold;
-        color: rgb(214, 214, 214);
+        color: rgb(133, 133, 133);
         text-decoration: none;
         transition: .1s;
     }
@@ -106,12 +114,21 @@ export default {
     }
 
     #nav2 {
-        display: flex;
-    
+        display: none;
         justify-content: space-between;
         align-items: center;
-        
         padding: 10px 20px;
     }
+
+    @media screen and (max-width: 840px) {
+    #nav {
+        display: none;
+    }
+
+    #nav2 {
+        display: flex;
+    }
+   
+  }
 
 </style>

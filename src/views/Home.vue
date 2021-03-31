@@ -1,7 +1,7 @@
 <template>
     <div class="home">
 
-        <Navbar id="nav" :bg = "style.bg" :wrapper = "style.sic" :color = "style.color"/>
+        <Navbar :bg = "style.bg"/>
 
         <div class="hero">
             <div class="texts">
@@ -76,7 +76,7 @@ export default {
     const login = false;
 
     const style = {
-        bg : "ffffff",
+        bg : "rgba(17, 17, 17, 0.534)",
         color : "42b9ac",
     }
 
@@ -91,18 +91,11 @@ export default {
 <style scoped>
   * {
     color: #fff;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
-  #nav {
-      background: transparent;
-      position: sticky;
-      top: 0;
-      z-index: 9998;
-  }
-
-  .txtBox {
-      
-  }
+  
 
   .sec1, .sec2 {
       color: #111;
@@ -112,15 +105,19 @@ export default {
   }
 
   .hero {
-      color: #fff;
-      padding: 180px;
       margin: auto;
       text-decoration: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 640px;
   }
 
   .lib, .libtn {
     width: 300px;
-    margin: auto;
+    margin: 0px auto;
     height: 80px;
     font-size: 30px;
     text-align: center;
@@ -140,14 +137,24 @@ export default {
   }
 
   .home {
-    background: url("./../assets/hero-bg.jpg");
+    position: relative;
+    background-color: rgba(22, 22, 22, 0.219);
     text-align: center;
     min-height: 100vh;
-    height: auto;
+    color: #fff;
+  }
+
+  .home:before {
+    content: '';
+    background-image: url("./../assets/hero-bg.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   .btnsvg {
@@ -168,7 +175,7 @@ export default {
     border: none;
     cursor: pointer;
     padding: 10px;
-    margin: auto;
+    margin: 10px auto;
   }
 
   .btncon > button {
@@ -209,6 +216,7 @@ export default {
 
     .hero {
         padding: 20px;
+        width: 100%;
     }
   }
 </style>
